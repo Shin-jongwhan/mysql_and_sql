@@ -18,3 +18,15 @@ SELECT MEMBER_ID, MEMBER_NAME, GENDER, DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d') as
 ### <br/><br/><br/>
 
 ## 2
+### 모든 레코드 조회하기
+#### 동물 보호소에 들어온 모든 동물의 정보를 ANIMAL_ID순으로 조회하는 SQL문을 작성해주세요. SQL을 실행하면 다음과 같이 출력되어야 합니다.
+#### ![image](https://user-images.githubusercontent.com/62974484/195251824-81cb0546-3ca6-4aa4-9613-5f807146eee9.png)
+#### 
+```
+-- 코드를 입력하세요
+-- SELECT * FROM ANIMAL_INS;
+-- 컬럼 정보 조회
+-- DESC ANIMAL_INS;
+SELECT * FROM ANIMAL_INS
+    ORDER BY ANIMAL_ID;
+```

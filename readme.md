@@ -1,5 +1,9 @@
 # [프로그래머스](https://school.programmers.co.kr)
 
+## 주의 사항
+### MySQL 로 선택해서 하기... oracle 에서는 sql 문법이 달라서 안 먹힌다. 몇 시간 동안 삽질했다.
+#### ![image](https://user-images.githubusercontent.com/62974484/195275760-70f88dce-5274-4986-8ab9-38ab4de29d78.png)
+
 ### <br/><br/><br/>
 
 ## 1
@@ -229,3 +233,8 @@ SELECT NAME, COUNT(NAME) FROM ANIMAL_INS
     AND NAME IS NOT NULL
     ORDER BY NAME;
 ```
+
+### <br/><br/><br/>
+
+## 17
+###

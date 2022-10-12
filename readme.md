@@ -94,3 +94,21 @@ SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
 SELECT ANIMAL_ID, NAME, DATETIME FROM ANIMAL_INS
     ORDER BY NAME, DATETIME DESC;
 ```
+
+### <br/><br/><br/>
+
+## 8 
+### 상위 n개 레코드
+#### 동물 보호소에 가장 먼저 들어온 동물의 이름을 조회하는 SQL 문을 작성해주세요.
+#### 
+```
+-- 코드를 입력하세요
+-- LIMIT 은 맨 마지막에 쓴다. FROM ~ ORDER BY 이 중간에 쓰면 에러 난다.
+-- LIMIT 10, 5; 와 같이 쓰면 10번째부터 5개 행을 가져온다.
+SELECT NAME FROM ANIMAL_INS 
+    ORDER BY DATETIME
+    LIMIT 1;
+```
+
+### <br/><br/><br/>
+

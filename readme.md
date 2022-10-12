@@ -237,4 +237,17 @@ SELECT NAME, COUNT(NAME) FROM ANIMAL_INS
 ### <br/><br/><br/>
 
 ## 17
-###
+### 입양 시각 구하기(1)
+#### 보호소에서는 몇 시에 입양이 가장 활발하게 일어나는지 알아보려 합니다. 09:00부터 19:59까지, 각 시간대별로 입양이 몇 건이나 발생했는지 조회하는 SQL문을 작성해주세요. 이때 결과는 시간대 순으로 정렬해야 합니다.
+### DATETIME 을 년, 월, 일, 시, 분, 초 추출 방법
+```
+-- SELECT YEAR(DATETIME), MONTH(DATETIME), DAY(DATETIME), HOUR(DATETIME), MINUTE(DATETIME), SECOND(DATETIME) FROM ANIMAL_OUTS 
+SELECT HOUR(DATETIME), COUNT(*) FROM ANIMAL_OUTS
+```
+#### 
+```
+-- 코드를 입력하세요
+    WHERE HOUR(DATETIME) BETWEEN 9 AND 19
+    GROUP BY HOUR(DATETIME)
+    ORDER BY HOUR(DATETIME);
+```

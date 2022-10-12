@@ -55,3 +55,42 @@ SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
     WHERE INTAKE_CONDITION = "Sick"
     ORDER BY ANIMAL_ID;
 ```
+
+### <br/><br/><br/>
+
+## 5
+### 어린 동물 찾기
+#### 동물 보호소에 들어온 동물 중 젊은 동물의 아이디와 이름을 조회하는 SQL 문을 작성해주세요. 이때 결과는 아이디 순으로 조회해주세요.
+#### ![image](https://user-images.githubusercontent.com/62974484/195253253-9ee16e03-d4b3-44bf-a88b-a6e76decf9f2.png)
+```
+-- 코드를 입력하세요
+-- SELECT * FROM ANIMAL_INS;
+
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+    WHERE INTAKE_CONDITION != "Aged"
+    ORDER BY ANIMAL_ID;
+```
+
+### <br/><br/><br/>
+
+## 6
+### 동물의 아이디와 이름
+#### 동물 보호소에 들어온 모든 동물의 아이디와 이름을 ANIMAL_ID순으로 조회하는 SQL문을 작성해주세요. SQL을 실행하면 다음과 같이 출력되어야 합니다.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+    ORDER BY ANIMAL_ID;
+```
+
+### <br/><br/><br/>
+
+## 7 
+### 여러 기준으로 정렬하기
+#### 동물 보호소에 들어온 모든 동물의 아이디와 이름, 보호 시작일을 이름 순으로 조회하는 SQL문을 작성해주세요. 단, 이름이 같은 동물 중에서는 보호를 나중에 시작한 동물을 먼저 보여줘야 합니다.
+#### ![image](https://user-images.githubusercontent.com/62974484/195254075-6714108c-c1f5-4c68-b09e-44a743b70d2a.png)
+```
+-- 코드를 입력하세요
+-- ORDER BY 를 여러 개 쓸 때는 각 기준을 , 로 구분해서 쓴다. 가장 오른쪽부터 먼저 정렬 후에 가장 왼쪽을 마지막에 정렬한다.
+SELECT ANIMAL_ID, NAME, DATETIME FROM ANIMAL_INS
+    ORDER BY NAME, DATETIME DESC;
+```

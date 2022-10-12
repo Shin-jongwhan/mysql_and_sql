@@ -171,15 +171,49 @@ SELECT COUNT(DISTINCT NAME) FROM ANIMAL_INS
     WHERE NAME IS NOT NULL;
 ```
 
+### <br/><br/><br/>
+
 ## 14 
 ### 식품분류별 가장 비싼 식품의 정보 조회하기
-
+#### FOOD_PRODUCT 테이블에서 식품분류별로 가격이 제일 비싼 식품의 분류, 가격, 이름을 조회하는 SQL문을 작성해주세요. 이때 식품분류가 '과자', '국', '김치', '식용유'인 경우만 출력시켜 주시고 결과는 식품 가격을 기준으로 내림차순 정렬해주세요.
+#### ![image](https://user-images.githubusercontent.com/62974484/195260387-6e2ac9a4-9673-4214-b79a-422907611e06.png)
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/195263720-2cffcbf8-bd54-40e2-acb5-a6adb5072af9.png)
 ```
 -- 코드를 입력하세요
+-- 1
 SELECT DISTINCT CATEGORY, PRICE, PRODUCT_NAME FROM FOOD_PRODUCT
-    WHERE CATEGORY = "과자"
-    OR CATEGORY = "국"
-    OR CATEGORY = "김치"
-    OR CATEGORY = "식용유"
+    WHERE PRICE IN (SELECT MAX(PRICE) FROM FOOD_PRODUCT WHERE CATEGORY = "과자") AND CATEGORY = "과자"
+    OR PRICE IN (SELECT MAX(PRICE) FROM FOOD_PRODUCT WHERE CATEGORY = "국") AND CATEGORY = "국"
+    OR PRICE IN (SELECT MAX(PRICE) FROM FOOD_PRODUCT WHERE CATEGORY = "김치") AND CATEGORY = "김치"
+    OR PRICE IN (SELECT MAX(PRICE) FROM FOOD_PRODUCT WHERE CATEGORY = "식용유") AND CATEGORY = "식용유"
     ORDER BY PRICE DESC
+
+-- 2 : GROUP BY 활용
+SELECT DISTINCT CATEGORY, PRICE, PRODUCT_NAME FROM FOOD_PRODUCT
+    WHERE PRICE IN (SELECT MAX(PRICE) FROM FOOD_PRODUCT GROUP BY CATEGORY)
+    AND CATEGORY IN ('과자', '국', '김치', '식용유')
+    ORDER BY PRICE DESC;
+
+-- 1, 2 결과는 뭔가 부정확한 것 같다...
 ```
+
+### <br/><br/><br/>
+
+## 15
+### 고양이와 개는 몇 마리 있을까
+#### 동물 보호소에 들어온 동물 중 고양이와 개가 각각 몇 마리인지 조회하는 SQL문을 작성해주세요. 이때 고양이를 개보다 먼저 조회해주세요.
+#### ![image](https://user-images.githubusercontent.com/62974484/195268896-5287059f-4a02-4447-aa21-f99c8efc8515.png)
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/195268861-f5c23544-d63b-4396-857b-5001daeaa495.png)
+```
+-- 코드를 입력하세요
+-- ORDER BY 를 쓰면 정답이긴 하지만.. 고양이를 개보다 먼저 조회해달라는 말과 일치하지는 않아서.. 애매하다.
+SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) FROM ANIMAL_INS
+    GROUP BY ANIMAL_TYPE
+    ORDER BY ANIMAL_TYPE;
+```
+
+### <br/><br/><br/>
+
+## 16

@@ -270,4 +270,20 @@ select HOUR from cte
 #### ![image](https://user-images.githubusercontent.com/62974484/195640158-b97938fa-a0cf-41d0-a99b-81aeecb1ebb1.png)
 ...
 #### ![image](https://user-images.githubusercontent.com/62974484/195640217-436cb647-744c-4e67-8d9d-0af57a5ec27a.png)
-
+### LEFT JOIN, ifnull() 을 통하여 0 값을 넣어준다.
+```
+with recursive cte as (
+    select 0 as HOUR
+    union
+    select HOUR + 1 from cte
+    where HOUR < 23
+)
+select A.HOUR, ifnull(B.count, 0) as COUNT from cte A
+LEFT JOIN (
+    select hour(DATETIME) as hour, count(ANIMAL_ID) as count
+        from ANIMAL_OUTS 
+        group by hour(DATETIME)
+) B
+on A.HOUR = B.hour
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/195653332-6e042840-c9d9-4d83-b60d-c25186611826.png)

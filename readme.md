@@ -261,11 +261,11 @@ SELECT HOUR(DATETIME), COUNT(*) FROM ANIMAL_OUTS
 #### recursive 문의 구조 (while 이라고 생각하면 편함)
 ```
 with recursive [테이블명] as (
-    초기 SQL (select ~)
+    초기 SQL (select [컬럼명] ...) -- 여기서 [컬럼명] 은 [테이블명] 에 할당됨
     union all (or union) -- union 은 union distict 의 줄임말로 중복 결과를 제거해줌
     반복 조건 SQL (반복을 멈출 where 포함)
 )
-select [컬럼명] form [테이블명]
+select [컬럼명] from [테이블명]
 ```
 ```
 with recursive cte as (

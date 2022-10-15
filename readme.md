@@ -296,3 +296,39 @@ LEFT JOIN (
 on A.HOUR = B.hour
 ```
 #### ![image](https://user-images.githubusercontent.com/62974484/195653332-6e042840-c9d9-4d83-b60d-c25186611826.png)
+
+### <br/><br/><br/>
+
+## 19
+### 가격대 별 상품 개수 구하기
+#### PRODUCT 테이블에서 만원 단위의 가격대 별로 상품 개수를 출력하는 SQL 문을 작성해주세요. 이때 컬럼명은 각각 컬럼명은 PRICE_GROUP, PRODUCTS로 지정해주시고 가격대 정보는 각 구간의 최소금액(10,000원 이상 ~ 20,000 미만인 구간인 경우 10,000)으로 표시해주세요. 결과는 가격대를 기준으로 오름차순 정렬해주세요.
+```
+SELECT truncate(PRICE, -4) as PRICE_GROUP, count(PRODUCT_CODE) as PRODUCTS FROM PRODUCT 
+    GROUP BY PRICE_GROUP
+    ORDER BY PRICE_GROUP
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/195982646-38365dd2-a3ee-4882-9326-85981d07f35d.png)
+
+### <br/><br/><br/>
+
+## 20
+### 경기도에 위치한 식품창고 목록 출력하기
+#### FOOD_WAREHOUSE 테이블에서 경기도에 위치한 창고의 ID, 이름, 주소, 냉동시설 여부를 조회하는 SQL문을 작성해주세요. 이때 냉동시설 여부가 NULL인 경우, 'N'으로 출력시켜 주시고 결과는 창고 ID를 기준으로 오름차순 정렬해주세요.
+### 문자 포함 여부는 where ~ LIKE 를 사용한다.
+- 'str%' 은 맨 앞 글자가 str 인 경우
+- '%str' 은 맨 뒤 글자가 str 인 경우
+- '%str%' 은 str을 포함하는 경우
+```
+-- 코드를 입력하세요
+SELECT WAREHOUSE_ID, WAREHOUSE_NAME, ADDRESS, ifnull(FREEZER_YN, 'N') as FREEZER_YN FROM FOOD_WAREHOUSE 
+    WHERE ADDRESS LIKE '%경기도%'
+    ORDER BY WAREHOUSE_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/195983000-6284f004-f965-446a-9a10-f885f396bf1a.png)
+
+### <br/><br/><br/>
+
+## 21
+

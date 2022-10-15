@@ -375,5 +375,22 @@ SELECT count(USER_ID) as USERS FROM USER_INFO
 
 ### <br/><br/><br/>
 
-## 25
-### 
+## 25 어렵다..
+### 그룹별 조건에 맞는 식당 목록 출력하기
+#### MEMBER_PROFILE와 REST_REVIEW 테이블에서 리뷰를 가장 많이 작성한 회원의 리뷰들을 조회하는 SQL문을 작성해주세요. 회원 이름, 리뷰 텍스트, 리뷰 작성일이 출력되도록 작성해주시고, 결과는 리뷰 작성일을 기준으로 오름차순 정렬해주세요.
+```
+SELECT A.MEMBER_NAME, B.REVIEW_TEXT, date_format(B.REVIEW_DATE, '%Y-%m-%d')  as REVIEW_DATE
+    FROM MEMBER_PROFILE  A, REST_REVIEW B
+    WHERE A.MEMBER_ID = B.MEMBER_ID
+    AND B.MEMBER_ID = (
+        SELECT MEMBER_ID FROM REST_REVIEW
+            GROUP BY MEMBER_ID
+            ORDER BY count(MEMBER_ID) desc
+            LIMIT 1
+    )
+    ORDER BY REVIEW_DATE
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196000171-f4c76757-73a0-446d-8484-bcc66357c23d.png)
+
+### <br/><br/><br/>

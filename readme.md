@@ -331,4 +331,49 @@ SELECT WAREHOUSE_ID, WAREHOUSE_NAME, ADDRESS, ifnull(FREEZER_YN, 'N') as FREEZER
 ### <br/><br/><br/>
 
 ## 21
+### IS NULL
+#### 동물 보호소에 들어온 동물 중, 이름이 없는 채로 들어온 동물의 ID를 조회하는 SQL 문을 작성해주세요. 단, ID는 오름차순 정렬되어야 합니다.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID FROM ANIMAL_INS 
+    WHERE NAME is null
+    ORDER BY ANIMAL_ID
+```
 
+### <br/><br/><br/>
+
+## 22
+### 이름이 있는 동물의 아이디(IS NOT NULL)
+#### 동물 보호소에 들어온 동물 중, 이름이 있는 동물의 ID를 조회하는 SQL 문을 작성해주세요. 단, ID는 오름차순 정렬되어야 합니다.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID FROM ANIMAL_INS
+    WHERE NAME is not null
+    ORDER BY ANIMAL_ID
+```
+
+### <br/><br/><br/>
+
+## 23
+### NULL 처리하기
+#### 입양 게시판에 동물 정보를 게시하려 합니다. 동물의 생물 종, 이름, 성별 및 중성화 여부를 아이디 순으로 조회하는 SQL문을 작성해주세요. 이때 프로그래밍을 모르는 사람들은 NULL이라는 기호를 모르기 때문에, 이름이 없는 동물의 이름은 "No name"으로 표시해 주세요.
+```
+SELECT ANIMAL_TYPE, ifnull(NAME, 'No name') as NAME, SEX_UPON_INTAKE FROM ANIMAL_INS 
+    ORDER BY ANIMAL_ID
+```
+
+### <br/><br/><br/>
+
+## 24
+### 나이 정보가 없는 회원 수 구하기
+#### USER_INFO 테이블에서 나이 정보가 없는 회원이 몇 명인지 출력하는 SQL문을 작성해주세요. 이때 컬럼명은 USERS로 지정해주세요.
+```
+-- 코드를 입력하세요
+SELECT count(USER_ID) as USERS FROM USER_INFO 
+    WHERE AGE is null
+```
+
+### <br/><br/><br/>
+
+## 25
+### 

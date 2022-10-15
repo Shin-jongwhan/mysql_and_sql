@@ -392,7 +392,7 @@ SELECT B.MEMBER_NAME, C.REVIEW_TEXT, date_format(C.REVIEW_DATE, '%Y-%m-%d') as d
     ORDER BY date
 ```
 ```
--- 정답 2
+-- 정답 2 (다른 사람 한 것 참고)
 SELECT A.MEMBER_NAME, B.REVIEW_TEXT, date_format(B.REVIEW_DATE, '%Y-%m-%d')  as REVIEW_DATE
     FROM MEMBER_PROFILE  A, REST_REVIEW B
     WHERE A.MEMBER_ID = B.MEMBER_ID

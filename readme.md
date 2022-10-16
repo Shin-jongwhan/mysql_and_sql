@@ -447,3 +447,4 @@ left join (select FOOD_TYPE, REST_ID, REST_NAME, FAVORITES from REST_INFO) B
 ### <br/><br/><br/>
 
 ## 27
+### 년, 월, 성별 별 상품 구매 회원 수 구하기

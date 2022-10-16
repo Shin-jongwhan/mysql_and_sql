@@ -408,3 +408,42 @@ SELECT A.MEMBER_NAME, B.REVIEW_TEXT, date_format(B.REVIEW_DATE, '%Y-%m-%d')  as 
 #### ![image](https://user-images.githubusercontent.com/62974484/196000171-f4c76757-73a0-446d-8484-bcc66357c23d.png)
 
 ### <br/><br/><br/>
+
+## 26
+### 즐겨찾기가 가장 많은 식당 정보 출력하기
+#### REST_INFO 테이블에서 음식종류별로 즐겨찾기수가 가장 많은 식당의 음식 종류, ID, 식당 이름, 즐겨찾기수를 조회하는 SQL문을 작성해주세요. 이때 결과는 음식 종류를 기준으로 내림차순 정렬해주세요.
+```
+-- 코드를 입력하세요
+-- DESC REST_INFO
+
+/* 데이터 확인 1
+select FOOD_TYPE, REST_ID, REST_NAME, FAVORITES FROM REST_INFO
+    order by FAVORITES desc, FOOD_TYPE
+*/
+
+/* 데이터 확인 2
+SELECT A.FOOD_TYPE, max(A.FAVORITES) FROM (
+    SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES FROM REST_INFO
+        group by FOOD_TYPE
+        order by FOOD_TYPE desc, FAVORITES desc
+) A
+    group by A.FOOD_TYPE
+*/
+```
+
+```
+-- 정답
+SELECT A.FOOD_TYPE, B.REST_ID, B.REST_NAME, A.FAVORITES FROM (
+    SELECT FOOD_TYPE, REST_ID, REST_NAME, max(FAVORITES) as FAVORITES FROM REST_INFO
+        group by FOOD_TYPE
+        order by FOOD_TYPE desc, FAVORITES desc
+) A
+left join (select FOOD_TYPE, REST_ID, REST_NAME, FAVORITES from REST_INFO) B
+    on A.FOOD_TYPE = B.FOOD_TYPE and A.FAVORITES = B.FAVORITES
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196025231-433404c5-1780-4709-99f3-fead4e33440a.png)
+
+### <br/><br/><br/>
+
+## 27

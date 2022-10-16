@@ -448,3 +448,22 @@ left join (select FOOD_TYPE, REST_ID, REST_NAME, FAVORITES from REST_INFO) B
 
 ## 27
 ### 년, 월, 성별 별 상품 구매 회원 수 구하기
+#### USER_INFO 테이블과 ONLINE_SALE 테이블에서 년, 월, 성별 별로 상품을 구매한 회원수를 집계하는 SQL문을 작성해주세요. 결과는 년, 월, 성별을 기준으로 오름차순 정렬해주세요. 이때, 성별 정보가 없는 경우 결과에서 제외해주세요.
+#### 회원수는 같은 년, 월, 성별에 중복해서 구매한 회원수가 있어서 distinct A.USER_ID 로 해줘야 중복 결과를 삭제할 수 있다.
+```
+select year(A.SALES_DATE) as year, month(A.SALES_DATE) as month, B.GENDER, count(distinct A.USER_ID) as USERS from ONLINE_SALE A
+left join (
+    select * from USER_INFO
+) B
+    on A.USER_ID = B.USER_ID
+    where B.GENDER is not null
+    group by month, year, B.GENDER
+    order by month, year, B.GENDER
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196039560-373932ab-f3d6-4473-83ac-a21f30e18151.png)
+
+### <br/><br/><br/>
+
+## 28 
+### 

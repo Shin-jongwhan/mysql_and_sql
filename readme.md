@@ -490,3 +490,39 @@ right join (
 ```
 ### 결과
 #### ![image](https://user-images.githubusercontent.com/62974484/196040548-76beefee-f9a5-4319-b7cb-8448d443e1f6.png)
+
+### <br/><br/><br/>
+
+## 28 
+### 있었는데요 없었습니다
+#### 관리자의 실수로 일부 동물의 입양일이 잘못 입력되었습니다. 보호 시작일보다 입양일이 더 빠른 동물의 아이디와 이름을 조회하는 SQL문을 작성해주세요. 이때 결과는 보호 시작일이 빠른 순으로 조회해야합니다.
+### 사전 확인
+```
+SELECT * from ANIMAL_INS A -- 보호소 정보
+left join (
+    select * from ANIMAL_OUTS -- 입양 정보
+) B
+    on A.ANIMAL_ID = B.ANIMAL_ID
+    where B.ANIMAL_ID is not null
+    and A.DATETIME > B.DATETIME
+    order by A.DATETIME
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/196041237-7d823623-4136-40b7-8f10-c2aca59ba734.png)
+### 정답
+```
+SELECT A.ANIMAL_ID, B.NAME from ANIMAL_INS A -- 보호소 정보
+left join (
+    select * from ANIMAL_OUTS -- 입양 정보
+) B
+    on A.ANIMAL_ID = B.ANIMAL_ID
+    where B.ANIMAL_ID is not null
+    and A.DATETIME > B.DATETIME
+    order by A.DATETIME
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196041262-6ae77edf-ebd2-4759-9789-54ad88e122bb.png)
+
+### <br/><br/><br/>
+
+## 30
+### 

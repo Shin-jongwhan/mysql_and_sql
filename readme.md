@@ -466,4 +466,27 @@ left join (
 ### <br/><br/><br/>
 
 ## 28 
-### 
+### 없어진 기록 찾기
+#### ANIMAL_OUTS 테이블은 동물 보호소에서 입양 보낸 동물의 정보를 담은 테이블입니다. ANIMAL_OUTS 테이블 구조는 다음과 같으며, ANIMAL_ID, ANIMAL_TYPE, DATETIME, NAME, SEX_UPON_OUTCOME는 각각 동물의 아이디, 생물 종, 입양일, 이름, 성별 및 중성화 여부를 나타냅니다. ANIMAL_OUTS 테이블의 ANIMAL_ID는 ANIMAL_INS의 ANIMAL_ID의 외래 키입니다.
+### 입양 기록은 있는데, 보호소 기록은 없는 것 확인
+```
+SELECT * from ANIMAL_INS A
+right join (
+    select * from ANIMAL_OUTS
+) B
+    on A.ANIMAL_ID = B.ANIMAL_ID
+    where A.ANIMAL_ID is null
+    order by B.ANIMAL_ID
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/196040513-65faa75f-6c53-4f09-bd80-33bbead54cb1.png)
+```
+SELECT B.ANIMAL_ID, B.NAME from ANIMAL_INS A
+right join (
+    select * from ANIMAL_OUTS
+) B
+    on A.ANIMAL_ID = B.ANIMAL_ID
+    where A.ANIMAL_ID is null
+    order by B.ANIMAL_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196040548-76beefee-f9a5-4319-b7cb-8448d443e1f6.png)

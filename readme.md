@@ -525,4 +525,20 @@ left join (
 ### <br/><br/><br/>
 
 ## 30
-### 
+### 오랜 기간 보호한 동물(1)
+#### 아직 입양을 못 간 동물 중, 가장 오래 보호소에 있었던 동물 3마리의 이름과 보호 시작일을 조회하는 SQL문을 작성해주세요. 이때 결과는 보호 시작일 순으로 조회해야 합니다.
+```
+SELECT A.NAME, A.DATETIME from ANIMAL_INS A -- 보호소 정보
+left join (
+    select * from ANIMAL_OUTS -- 입양 정보
+) B
+    on A.ANIMAL_ID = B.ANIMAL_ID
+    where B.ANIMAL_ID is null
+    order by A.DATETIME
+    limit 3
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196041450-8307cc6f-1dd7-4141-a6bc-036bd880314d.png)
+
+### <br/><br/><br/>
+

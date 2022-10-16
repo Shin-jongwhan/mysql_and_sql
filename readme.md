@@ -551,3 +551,43 @@ select price from PRODUCT
     order by price desc
     limit 1
 ```
+
+### <br/><br/><br/>
+
+## 32
+### 강원도에 위치한 생산공장 목록 출력하기
+#### FOOD_FACTORY 테이블에서 강원도에 위치한 식품공장의 공장 ID, 공장 이름, 주소를 조회하는 SQL문을 작성해주세요. 이때 결과는 공장 ID를 기준으로 오름차순 정렬해주세요.
+```
+-- 코드를 입력하세요
+SELECT FACTORY_ID, FACTORY_NAME, ADDRESS FROM FOOD_FACTORY 
+    where ADDRESS like '%강원도%'
+    order by FACTORY_ID
+```
+
+### <br/><br/><br/>
+
+## 33
+### 조건에 맞는 회원수 구하기
+#### USER_INFO 테이블에서 2021년에 가입한 회원 중 나이가 20세 이상 29세 이하인 회원이 몇 명인지 출력하는 SQL문을 작성해주세요.
+```
+-- 코드를 입력하세요
+SELECT count(*) FROM USER_INFO 
+    where year(JOINED) = 2021
+    and age between 20 and 29
+```
+
+### <br/><br/><br/>
+
+## 34
+### 재구매가 일어난 상품과 회원 리스트 구하기
+#### ONLINE_SALE 테이블에서 동일한 회원이 동일한 상품을 재구매한 데이터를 구하여, 재구매한 회원 ID와 재구매한 상품 ID를 출력하는 SQL문을 작성해주세요. 결과는 회원 ID를 기준으로 오름차순 정렬해주시고 회원 ID가 같다면 상품 ID를 기준으로 내림차순 정렬해주세요
+```
+-- 코드를 입력하세요
+SELECT USER_ID, PRODUCT_ID  FROM ONLINE_SALE 
+    group by PRODUCT_ID, USER_ID
+    having count(*) > 1
+    order by USER_ID, PRODUCT_ID desc
+```
+
+### <br/><br/><br/>
+

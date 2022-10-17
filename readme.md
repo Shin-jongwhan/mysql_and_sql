@@ -635,3 +635,19 @@ ORDER BY score DESC, ri.favorites DESC
 #### ![image](https://user-images.githubusercontent.com/62974484/196072169-ff6afcc2-8beb-442c-b279-6860407aae0b.png)
 ### 정답 결과
 #### ![image](https://user-images.githubusercontent.com/62974484/196072248-c525fa3f-d8be-42c5-9f9b-093e3f662902.png)
+### <br/> 
+### 확인해보니 '%서울%' 이라고 쓰면 틀리고, '서울%' 이라고 써야 정답처리해준다.
+```
+SELECT B.REST_ID, B.REST_NAME, B.FOOD_TYPE, B.FAVORITES, B.ADDRESS, round(avg(C.REVIEW_SCORE), 2) as score
+    FROM (SELECT * FROM REST_INFO A WHERE A.ADDRESS LIKE '서울%') B
+INNER JOIN (
+    SELECT * FROM REST_REVIEW 
+) C
+    ON B.REST_ID = C.REST_ID
+    group by B.REST_ID
+    order by score desc, B.FAVORITES desc;
+```
+
+### <br/><br/><br/>
+
+## 

@@ -669,5 +669,48 @@ UNION ALL
 
 ### <br/><br/><br/>
 
+## 37
+### 상품 별 오프라인 매출 구하기
+#### PRODUCT 테이블과 OFFLINE_SALE 테이블에서 상품코드 별 매출액(판매가 * 판매량) 합계를 출력하는 SQL문을 작성해주세요. 결과는 매출액을 기준으로 내림차순 정렬해주시고 매출액이 같다면 상품코드를 기준으로 오름차순 정렬해주세요.
+```
+-- 코드를 입력하세요
+SELECT B.PRODUCT_CODE, PRICE * sum(SALES_AMOUNT) as SALES FROM OFFLINE_SALE A
+left join PRODUCT B on A.PRODUCT_ID = B.PRODUCT_ID
+    group by A.PRODUCT_ID
+    order by SALES desc, B.PRODUCT_CODE
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196224784-ef6c61d4-e95b-490c-ab44-bc9aa6b6f330.png)
 
+### <br/><br/><br/>
 
+## 38
+### 상품을 구매한 회원 비율 구하기
+#### USER_INFO 테이블과 ONLINE_SALE 테이블에서 2021년에 가입한 전체 회원들 중 상품을 구매한 회원수와 상품을 구매한 회원의 비율(=2021년에 가입한 회원 중 상품을 구매한 회원수 / 2021년에 가입한 전체 회원 수)을 년, 월 별로 출력하는 SQL문을 작성해주세요. 상품을 구매한 회원의 비율은 소수점 두번째자리에서 반올림하고, 전체 결과는 년을 기준으로 오름차순 정렬해주시고 년이 같다면 월을 기준으로 오름차순 정렬해주세요.
+### 1. from 에 새로운 컬럼으로 user_info 의 count 를 추가해준다.
+```
+select * from ONLINE_SALE, (select count(*) from USER_INFO A where year(A.JOINED) = 2021) B
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/196246524-e856caee-8fb0-42fb-b4b2-bcd5ada37c55.png)
+
+### 2. left join 으로 USER_INFO 테이블을 연결시켜준다.
+```
+select * from (
+    ONLINE_SALE A, (select count(*) as users from USER_INFO B where year(B.JOINED) = 2021) C
+)
+left join USER_INFO D on D.USER_ID = A.USER_ID
+```
+
+### 3. 조건에 맞게 필터링해주고 group by 로 년, 월로 묶는다. 같은 월 중복된 구매자가 있으니 distinct ONLINE_SALE.user_id 를 사용한다.
+```
+-- 코드를 입력하세요
+select year(A.SALES_DATE), month(A.SALES_DATE), count(distinct A.USER_ID) as PUCHASED_USERS, round(count(distinct A.USER_ID) / C.users, 1) as PUCHASED_RATIO from (
+    ONLINE_SALE A, (select count(*) as users from USER_INFO B where year(B.JOINED) = 2021) C
+)
+left join USER_INFO D on A.USER_ID = D.USER_ID
+    where year(D.JOINED) = 2021
+    group by year(A.SALES_DATE), month(A.SALES_DATE)
+    order by year(A.SALES_DATE), month(A.SALES_DATE)
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196246055-5e97d977-0a6d-42be-a8e6-906684b68b88.png)

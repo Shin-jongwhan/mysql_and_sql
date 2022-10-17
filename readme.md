@@ -650,4 +650,24 @@ INNER JOIN (
 
 ### <br/><br/><br/>
 
-## 
+## 36
+### 오프라인/온라인 판매 데이터 통합하기
+#### ONLINE_SALE 테이블과 OFFLINE_SALE 테이블에서 2022년 3월의 오프라인/온라인 상품 판매 데이터의 판매 날짜, 상품ID, 유저ID, 판매량을 출력하는 SQL문을 작성해주세요. OFFLINE_SALE 테이블의 판매 데이터의 USER_ID 값은 NULL 로 표시해주세요. 결과는 판매일을 기준으로 오름차순 정렬해주시고 판매일이 같다면 상품 ID를 기준으로 오름차순, 상품ID까지 같다면 유저 ID를 기준으로 오름차순 정렬해주세요.
+### 이 문제는 UNION 을 써야 하는 문제이다. 같은 컬럼명으로 UNION 해주자.
+```
+select * FROM (
+    select date_format(SALES_DATE, '%Y-%m-%d') as SALES_DATE, PRODUCT_ID, NULL as USER_ID, SALES_AMOUNT from OFFLINE_SALE where year(SALES_DATE) = 2022 and month(SALES_DATE) = 3 
+) A
+UNION ALL
+    select date_format(SALES_DATE, '%Y-%m-%d') as SALES_DATE, PRODUCT_ID, USER_ID, SALES_AMOUNT 
+        FROM ONLINE_SALE B
+        where year(SALES_DATE) = 2022 and month(SALES_DATE) = 3
+    order by SALES_DATE, PRODUCT_ID, USER_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196221333-7ddea2f3-d8d6-4a23-94e9-1bb86d5ca2b0.png)
+
+### <br/><br/><br/>
+
+
+

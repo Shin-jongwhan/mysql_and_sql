@@ -714,3 +714,22 @@ left join USER_INFO D on A.USER_ID = D.USER_ID
 ```
 ### 결과
 #### ![image](https://user-images.githubusercontent.com/62974484/196246055-5e97d977-0a6d-42be-a8e6-906684b68b88.png)
+
+### <br/><br/><br/>
+
+## 39
+### 5월 식품들의 총매출 조회하기
+#### FOOD_PRODUCT와 FOOD_ORDER 테이블에서 생산일자가 2022년 5월인 식품들의 식품 ID, 식품 이름, 총매출을 조회하는 SQL문을 작성해주세요. 이때 결과는 총매출을 기준으로 내림차순 정렬해주시고 총매출이 같다면 식품 ID를 기준으로 오름차순 정렬해주세요.
+### 주의 : 한 제품 ID 에 한 월에 여러 번 생산한 것이 있으니 group by 를 써서 묶어야 한다.
+```
+-- 코드를 입력하세요
+SELECT B.PRODUCT_ID, B.PRODUCT_NAME, sum(A.AMOUNT) * B.PRICE as TOTAL_SALES from FOOD_ORDER A
+left join FOOD_PRODUCT B on A.PRODUCT_ID = B.PRODUCT_ID
+    where B.PRODUCT_ID is not null and date_format(A.PRODUCE_DATE, "%Y-%m") = "2022-05"
+    group by A.PRODUCT_ID
+    order by TOTAL_SALES desc, B.PRODUCT_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196370578-76974d31-46f2-473d-bfa5-a96f95f5d365.png)
+
+### <br/><br/><br/>

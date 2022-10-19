@@ -775,3 +775,57 @@ order by ORDER_ID
 
 ### <br/><br/><br/>
 
+## 42
+### 루시와 엘라 찾기
+#### 동물 보호소에 들어온 동물 중 이름이 Lucy, Ella, Pickle, Rogan, Sabrina, Mitty인 동물의 아이디와 이름, 성별 및 중성화 여부를 조회하는 SQL 문을 작성해주세요.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME, SEX_UPON_INTAKE from ANIMAL_INS
+    where NAME in ('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty')
+```
+
+### <br/><br/><br/>
+
+## 43
+### 이름에 el이 들어가는 동물 찾기
+#### 보호소에 돌아가신 할머니가 기르던 개를 찾는 사람이 찾아왔습니다. 이 사람이 말하길 할머니가 기르던 개는 이름에 'el'이 들어간다고 합니다. 동물 보호소에 들어온 동물 이름 중, 이름에 "EL"이 들어가는 개의 아이디와 이름을 조회하는 SQL문을 작성해주세요. 이때 결과는 이름 순으로 조회해주세요. 단, 이름의 대소문자는 구분하지 않습니다.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME from ANIMAL_INS 
+    where NAME LIKE ('%el%')
+    and ANIMAL_TYPE = "Dog"
+    order by NAME
+```
+
+### <br/><br/><br/>
+
+## 44
+### 중성화 여부 파악하기
+#### 보호소의 동물이 중성화되었는지 아닌지 파악하려 합니다. 중성화된 동물은 SEX_UPON_INTAKE 컬럼에 'Neutered' 또는 'Spayed'라는 단어가 들어있습니다. 동물의 아이디와 이름, 중성화 여부를 아이디 순으로 조회하는 SQL문을 작성해주세요. 이때 중성화가 되어있다면 'O', 아니라면 'X'라고 표시해주세요.
+### LIKE 대신 REGEXP_LIKE 를 사용해보기 !
+#### 정규식을 사용하여 여러 개를 매칭할 수 있다.
+- 참고 : https://jhnyang.tistory.com/292
+- 사용 방법 : REGEXP_LIKE(컬럼명, '매칭', '옵션')
+- 옵션
+![image](https://user-images.githubusercontent.com/62974484/196753896-caeae8d8-377a-48c9-8502-57a5a35afe50.png)
+- 예시 : REGEXP_LIKE(SEX_UPON_INTAKE, '^Neutered|^Spayed', 'i') 와 같이 쓰면 Neutered, Spayed 로 시작하는 문자를 대소문자 구분 없이(i 옵션) 찾아준다.
+- 자주 쓰이는 정규식
+  - ^\[문자열\] : 해당 문자열로 시작하는 것을 찾아줌
+  - | : OR
+  - abc(d|e|f) : abcd / abce / abcf 를 찾아줌
+  - \[문자열\]$ : 해당 문자열로 끝나는 것을 찾아줌
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME, 
+    case
+        when REGEXP_LIKE(SEX_UPON_INTAKE, '^Neutered|^Spayed', 'i') then 'O'
+        else 'X'
+    end as 중성화
+from ANIMAL_INS
+order by ANIMAL_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196753564-09029c42-db9f-48e1-b563-cbba67c2e1e2.png)
+
+### <br/><br/><br/>
+

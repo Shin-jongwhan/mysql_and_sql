@@ -829,3 +829,47 @@ order by ANIMAL_ID
 
 ### <br/><br/><br/>
 
+## 45
+### 오랜 기간 보호한 동물(2)
+#### 입양을 간 동물 중, 보호 기간이 가장 길었던 동물 두 마리의 아이디와 이름을 조회하는 SQL문을 작성해주세요. 이때 결과는 보호 기간이 긴 순으로 조회해야 합니다.
+```
+-- 코드를 입력하세요
+SELECT A.ANIMAL_ID, A.NAME from ANIMAL_INS A
+left join ANIMAL_OUTS B on A.ANIMAL_ID = B.ANIMAL_ID
+where B.DATETIME is not null
+order by B.DATETIME - A.DATETIME desc
+limit 2
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196756603-a1166eda-7419-4afe-9665-b9eea353cdb7.png)
+
+### <br/><br/><br/>
+
+## 46 
+### DATETIME에서 DATE로 형 변환
+#### ANIMAL_INS 테이블에 등록된 모든 레코드에 대해, 각 동물의 아이디와 이름, 들어온 날짜1를 조회하는 SQL문을 작성해주세요. 이때 결과는 아이디 순으로 조회해야 합니다.
+```
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME, date_format(DATETIME, '%Y-%m-%d') from ANIMAL_INS 
+order by ANIMAL_ID
+```
+
+### <br/><br/><br/>
+
+## 47
+### 카테고리 별 상품 개수 구하기
+#### PRODUCT 테이블에서 상품 카테고리 코드(PRODUCT_CODE 앞 2자리) 별 상품 개수를 출력하는 SQL문을 작성해주세요. 결과는 상품 카테고리 코드를 기준으로 오름차순 정렬해주세요.
+### 문자열 다루기
+- left(문자열, n) : n 길이로 왼쪽부터 출력
+- right(문자열, n) : n 길이로 오른쪽부터 출력
+- length(문자열) : 문자열 길이 출력 (char_length 도 있음, 참고)
+- substring(문자열, x, y) : x 부터 y 까지 자름
+```
+-- 코드를 입력하세요
+SELECT left(PRODUCT_CODE, 2) as CATEGORY, count(*) as PRODUCTS from PRODUCT 
+group by CATEGORY
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196758372-e751638d-8f54-463e-a8e6-5c1395544701.png)
+
+# !!!!!!! 끝 !!!!!!!!

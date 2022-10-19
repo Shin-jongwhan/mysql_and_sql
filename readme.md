@@ -874,10 +874,14 @@ group by CATEGORY
 
 ### <br/><br/><br/>
 
-<span style="color:red">
+```html
+<pre>
+    <span style="color:red">
 
-빨강 글씨
+    빨강 글씨
 
-Red Font
+    Red Font
 
-</span>
+    </span>
+</pre>
+```

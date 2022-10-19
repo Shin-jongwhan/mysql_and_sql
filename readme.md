@@ -733,3 +733,27 @@ left join FOOD_PRODUCT B on A.PRODUCT_ID = B.PRODUCT_ID
 #### ![image](https://user-images.githubusercontent.com/62974484/196370578-76974d31-46f2-473d-bfa5-a96f95f5d365.png)
 
 ### <br/><br/><br/>
+
+## 40
+### 보호소에서 중성화한 동물
+#### 보호소에서 중성화 수술을 거친 동물 정보를 알아보려 합니다. 보호소에 들어올 당시에는 중성화1되지 않았지만, 보호소를 나갈 당시에는 중성화된 동물의 아이디와 생물 종, 이름을 조회하는 아이디 순으로 조회하는 SQL 문을 작성해주세요.
+```
+-- 코드를 입력하세요
+select * from (
+    SELECT A.ANIMAL_ID, A.ANIMAL_TYPE, A.NAME from ANIMAL_INS A
+    left join ANIMAL_OUTS B on A.ANIMAL_ID = B.ANIMAL_ID
+        where B.ANIMAL_ID is not null
+        and A.SEX_UPON_INTAKE = "Intact Female" and B.SEX_UPON_OUTCOME = "Spayed Female"
+    union all
+    SELECT A.ANIMAL_ID, A.ANIMAL_TYPE, A.NAME from ANIMAL_INS A
+    left join ANIMAL_OUTS B on A.ANIMAL_ID = B.ANIMAL_ID
+        where B.ANIMAL_ID is not null
+        and A.SEX_UPON_INTAKE = "Intact Male" and B.SEX_UPON_OUTCOME = "Neutered Male"
+) C
+    order by C.ANIMAL_ID
+```
+### 결과
+#### ![image](https://user-images.githubusercontent.com/62974484/196632294-a4132f13-26d6-4be2-98be-947d687b418e.png)
+
+### <br/><br/><br/>
+

@@ -874,14 +874,18 @@ group by CATEGORY
 
 ### <br/><br/><br/>
 
+
 ```html
+<h2>Example of code</h2>
+
 <pre>
-    <span style="color:red">
-
-    빨강 글씨
-
-    Red Font
-
-    </span>
+    <div class="container">
+        <div class="block two first">
+            <h2>Your title</h2>
+            <div class="wrap">
+            //Your content
+            </div>
+        </div>
+    </div>
 </pre>
 ```

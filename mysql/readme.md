@@ -13,10 +13,12 @@
     - netstat -tnlp
     - lsof -i
   #### ![image](https://user-images.githubusercontent.com/62974484/201509163-3fb7020b-ccca-4b8b-8ca8-8bcd75a4654a.png)
-- pid-file   = /TBI/People/tbi/jhshin/miniconda3/data2/hostname.pid2
-datadir    = /TBI/People/tbi/jhshin/miniconda3/data2
-language   = /TBI/People/tbi/jhshin/miniconda3/share/mysql/mysql/english
-user       = unix_user1
+### <br/>
+
+- pid-file : datadir 안에 넣어주면 된다.
+- datadir : 자신의 새로운 db 디렉터리. 빈 폴더를 하나 만들어주고 등록한다.
+- language : mysql 을 설치할 때 만들어주는데, 없으면 새로 설치해준다.
+- user : 
 ```
 # This is an example of a my.cnf file for mysqld_multi.
 # Usually this file is located in home dir ~/.my.cnf or /etc/my.cnf

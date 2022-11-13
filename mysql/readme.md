@@ -4,6 +4,7 @@
 # mysql 다중 서버 만드는 방법
 ## mysqld_multi 를 사용하여 만든다.
 ### mysql 을 설치할 때 같이 설치되는 프로그램이다.
+### <br/><br/><br/>
 
 ## cnf 파일 설정
 ### mysqld_multi --example 을 실행하면 예시 파일을 만들어준다.
@@ -142,33 +143,51 @@ datadir    = /TBI/People/tbi/jhshin/miniconda3/data6
 language   = /TBI/People/tbi/jhshin/miniconda3/share/mysql/mysql/japanese
 user       = unix_user4
 ```
+### <br/>
+
+### my.cnf 저장 경로
+#### which mysqld_multi 로 위치 찾은 다음 vi 로 켜서 어디에 저장해야 하는지 본다.
+#### /TBI/People/tbi/jhshin/miniconda3/etc/my.cnf
+#### ![image](https://user-images.githubusercontent.com/62974484/201509326-a026bd78-a18e-4b79-9095-b05648c5e86a.png)
+### <br/><br/><br/>
 
 
+## mysqld_multi 실행
+### 2와 같이 숫자를 써주면 \[mysqld2\] 가 실행된다.
+### 숫자를 안 써주면 모든 mysqld 가 실행된다.
+### user 와 password 를 써준다. 
+### 권장사항으로 처음 시작할 때는 --verbose 옵션을 넣어주고 어떤 내용들이 있는지 꼭 확인한다.
+```
+$ mysqld_multi --user=jhshin --password=jhshin --verbose start 2
+```
+### <br/>
+
+### 실행이 잘 되면 datadir 에 파일들이 생긴다.
+### 그리고 mysqld 가 잘 실행되고 있는 것을 체크한다.
+#### ![image](https://user-images.githubusercontent.com/62974484/201509455-2fae97f0-8eb7-4f64-a273-1a023a3f8322.png)
+#### ![image](https://user-images.githubusercontent.com/62974484/201509484-fa82a97a-cc30-4988-8cce-01342f0f21b5.png)
+### <br/>
+
+### 첫 실행 시 꼭 root 의 초기 비밀번호를 확인한다 !
+#### ![image](https://user-images.githubusercontent.com/62974484/201509538-b1afb817-d22a-4330-a39c-2f6c02d50408.png)
+### <br/><br/><br/>
 
 
+## 접속
+### $ mysql -uroot -S /tmp/mysql.sock2 -p 를 입력하고 초기 비밀번호를 입력한다.
+### 정상 접속됐을 때는 아래와 같이 나온다.
+#### ![image](https://user-images.githubusercontent.com/62974484/201509613-ccdb4f2d-b4b1-4f1b-be17-4b928f21c4d4.png)
+### <br/>
 
+### root 초기 비밀번호 변경
+```
+-- 초기 비밀번호 변경
+mysql> alter user 'root'@'localhost' identified with mysql_native_password by 'new_password_you_want';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- 외부 접속 시 IP 및 비밀번호 설정 
+mysql> create user 'root'@'192.168.0.100' identified with mysql_native_password by 'new_password_you_want';
+```
+### <br/><br/><br/>
 
 
 

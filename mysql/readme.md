@@ -189,6 +189,30 @@ mysql> create user 'root'@'192.168.0.100' identified with mysql_native_password 
 ```
 ### <br/><br/><br/>
 
+## 다른 서버에서 접속 확인
+```
+import pymysql.cursors
+
+def main() :
+    # Connect to the database
+    connection = pymysql.connect(host='host_name or ip',
+            port=3307,
+            user='root',
+            password='root',
+            database='mysql',
+            cursorclass=pymysql.cursors.DictCursor)
+    cursor = connection.cursor()
+
+    sql = "show tables;"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+
+    print(result)
+
+main()
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/201509847-642e4b90-d1fd-4bc6-89c2-b713d41f27bd.png)
+### <br/><br/><br/>
 
 
 

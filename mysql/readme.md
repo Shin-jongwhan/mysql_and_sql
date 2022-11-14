@@ -189,6 +189,8 @@ mysql> create user 'root'@'192.168.0.100' identified with mysql_native_password 
 
 -- 외부 접속을 모두 허용
 mysql> create user 'root'@'%' identified with mysql_native_password by 'root';
+-- 또는
+mysql> grant all privileges on *.* to 'root'@'%' identified by 'root';
 ```
 ### <br/><br/><br/>
 
@@ -198,6 +200,7 @@ import pymysql.cursors
 
 def main() :
     # Connect to the database
+    # host_name or ip 는 실행 중인 서버를 넣는다.
     connection = pymysql.connect(host='host_name or ip',
             port=3307,
             user='root',

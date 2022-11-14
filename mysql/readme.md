@@ -186,6 +186,9 @@ mysql> alter user 'root'@'localhost' identified with mysql_native_password by 'n
 
 -- 외부 접속 시 IP 및 비밀번호 설정 
 mysql> create user 'root'@'192.168.0.100' identified with mysql_native_password by 'new_password_you_want';
+
+-- 외부 접속을 모두 허용
+mysql> create user 'root'@'%' identified with mysql_native_password by 'root';
 ```
 ### <br/><br/><br/>
 

@@ -242,8 +242,19 @@ mysql> drop database \[데이터베이스 명\];
 mysql> use test;    -- 이용할 db
 mysql> drop table \[테이블 명\];
 ```
+### <br/><br/><br/>
 
+### 행 추가(insert), 행 삭제(delete), 행 정보 수정(update)
+```
+# 행 추가(insert)
+> insert into test (name) values ("test");
 
+# 행 삭제(delete)
+> delete from test where name="test";
+
+# 행 정보 수정(where 절 안 들어가면 다 수정되니 주의)
+> update test set name="test2" where name="test";
+```
 
 
 

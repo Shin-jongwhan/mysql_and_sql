@@ -227,14 +227,17 @@ main()
 ```
 # db 생성
 mysql> create database test character set UTF8;
+
 # table 생성
 mysql> CREATE TABLE test (
     idx             INT NOT NULL AUTO_INCREMENT,
     name            VARCHAR(20) not null,
     PRIMARY KEY(idx)
 );
+
 # database 삭제
 mysql> drop database \[데이터베이스 명\];
+
 # table 삭제
 mysql> use test;    -- 이용할 db
 mysql> drop table \[테이블 명\];

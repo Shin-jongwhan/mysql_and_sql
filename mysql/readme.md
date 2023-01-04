@@ -191,6 +191,9 @@ mysql> create user 'root'@'192.168.0.100' identified with mysql_native_password 
 mysql> create user 'root'@'%' identified with mysql_native_password by 'root';
 -- 또는
 mysql> grant all privileges on *.* to 'root'@'%' identified by 'root';
+
+-- 권한 변경 사항 적용
+mysql> flush privileges;
 ```
 ### <br/><br/><br/>
 

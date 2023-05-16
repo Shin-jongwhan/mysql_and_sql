@@ -256,9 +256,16 @@ mysql> drop table \[테이블 명\];
 > update test set name="test2" where name="test";
 ```
 
-
-
-
-
-
 ------------------------------------------------------------
+
+# 230516
+## DB 이름 변경
+### 이름 변경은 원래 있었는데 보안 문제 등으로 기능이 삭제되었다고 한다.
+### 그래서 dump 를 하여 바꿔야 한다고 한다.
+```
+$> mysqldump -u root -p db1 > dump.sql # 기존 DB sql문으로 dump
+$> mysqldump -u root -p --routines db1 > dump.sql # 옮길 procedure가 있는 경우
+$> mysqladmin -u root -p create db2 # 새로운 DB 생성
+$> mysql -u root -p db2 < dump.sql # 새 DB에 기존 DB dump를 덮어씌움
+$> mysql -u root -p -e "DROP DATABASE db1" # 기존 DB 삭제
+```

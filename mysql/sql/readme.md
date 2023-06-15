@@ -33,3 +33,47 @@ insert into test2 (idx, score) select idx, 90 from test where name = 'test';
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql_test/assets/62974484/8562587f-1c73-4ee5-9ca9-1bb6bd2ee1aa)
 ### <br/><br/><br/>
 
+## DB, table 생성, 삭제
+```
+# db 생성
+mysql> create database test character set UTF8;
+
+# table 생성
+mysql> CREATE TABLE test (
+    idx             INT NOT NULL AUTO_INCREMENT,
+    name            VARCHAR(20) not null,
+    PRIMARY KEY(idx)
+);
+
+# database 삭제
+mysql> drop database \[데이터베이스 명\];
+
+# table 삭제
+mysql> use test;    -- 이용할 db
+mysql> drop table \[테이블 명\];
+```
+### <br/><br/><br/>
+
+## 데이터 조회
+```
+# 테이블 컬럼 등 구조 조회
+> desc \[테이블 명\]
+
+# 자료 조회
+> select * from \[테이블 명\]
+```
+### <br/><br/><br/>
+
+## 행 추가(insert), 행 삭제(delete), 행 정보 수정(update)
+```
+# 행 추가(insert)
+> insert into test (name) values ("test");
+
+# 행 삭제(delete)
+> delete from test where name="test";
+
+# 행 정보 수정(where 절 안 들어가면 다 수정되니 주의)
+> update test set name="test2" where name="test";
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/210611950-f980b84f-84c2-4539-8973-318f9873a9ef.png)
+### <br/><br/><br/>

@@ -77,3 +77,30 @@ mysql> drop table \[테이블 명\];
 ```
 #### ![image](https://user-images.githubusercontent.com/62974484/210611950-f980b84f-84c2-4539-8973-318f9873a9ef.png)
 ### <br/><br/><br/>
+
+## foreign key 체크 해제
+### foreign key constrant fails 로 인해 값이 안 넣어진다면 0 으로 설정하면 값을 넣을 수 있다.
+```
+# 체크 해제
+SET foreign_key_checks = 0;
+
+# 체크 설정
+SET foreign_key_checks = 1;
+```
+### <br/><br/><br/>
+
+## 테이블 컬럼 수정
+```
+# 컬럼 추가
+ALTER TABLE dbo.emp ADD email VARCHAR(25)
+
+# 컬럼 수정
+## 타입 수정 (modify 를 써도 되고, alter column 을 써도 된다)
+## alter column
+ALTER TABLE [table 명] ALTER COLUMN [컬럼 명] VARCHAR(100)
+## modify
+alter table rawdata_info modify total_balse bigint unsigned;
+
+## foreign key 등록
+alter table analysis_log add foreign key(analysis_idx_fk) references analysis(idx) on update cascade;
+```

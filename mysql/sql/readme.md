@@ -104,3 +104,16 @@ alter table rawdata_info modify total_balse bigint unsigned;
 ## foreign key 등록
 alter table analysis_log add foreign key(analysis_idx_fk) references analysis(idx) on update cascade;
 ```
+### <br/><br/><br/>
+
+## 시간 차이 구하기
+### 8.0 버전으로, 공식 홈페이지 문서를 참고한다.
+#### https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timediff
+#### ![image](https://github.com/Shin-jongwhan/mysql_and_sql_test/assets/62974484/16264bb6-c3f3-4fe2-bb8f-f31ca31e49dc)
+```
+SELECT TIMESTAMPDIFF(MINUTE, NOW(), '2023-07-10 00:00:00.1') AS DateDiff;
+```
+#### ![image](https://github.com/Shin-jongwhan/mysql_and_sql_test/assets/62974484/42a0f583-a01d-40b7-855f-129b3fcc46e8)
+### <br/><br/><br/>
+
+

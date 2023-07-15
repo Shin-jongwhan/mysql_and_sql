@@ -122,7 +122,7 @@ SELECT TIMESTAMPDIFF(MINUTE, NOW(), '2023-07-10 00:00:00.1') AS DateDiff;
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql_test/assets/62974484/42a0f583-a01d-40b7-855f-129b3fcc46e8)
 ### <br/><br/><br/>
 
-
+#### 230715
 ## with 예시
 ### 특정 값을 하나의 쿼리로 가져오는 것이 복잡할 경우 여러 쿼리를 연결하여 사용하는 구문이다.
 ### join 과는 다른 느낌

@@ -155,3 +155,9 @@ where
 ```
 ### <br/><br/><br/>
 
+## 다른 db 의 테이블에서 값 가져오기
+### dev 서버를 publish 서버로 그대로 테이블 값을 옮긴다거나 할 때가 있다. 그럴 때 사용한다.
+### join 을 활용한다.
+```
+update rine_reference A join workflow_dev.rine_reference B on A.reference_name = B.reference_name set A.backup_file = B.backup_file, A.backup_server = "bidev2" where A.reference_name = B.reference_name;
+```

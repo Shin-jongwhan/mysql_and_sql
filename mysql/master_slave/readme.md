@@ -49,5 +49,19 @@ default-character-set = utf8
 ```
 ### <br/>
 
+### master mysql 에서 slave mysql 서버를 등록한다.
+```
+# 계정 생성
+CREATE USER 'slave_1'@'ip_address' IDENTIFIED BY 'test';
+
+# 권한 설정
+GRANT REPLICATION SLAVE ON *.* TO 'slave_1'@'ip_address';
+```
+
+### 설정 확인
+```
+SHOW MASTER STATUS \G
+```
+#### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/fd9f5a6f-bd84-411b-ba7a-232455038500)
 
 

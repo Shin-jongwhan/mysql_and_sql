@@ -93,3 +93,8 @@ CHANGE REPLICATION SOURCE TO SOURCE_HOST='182.162.88.158', SOURCE_LOG_FILE='mysq
 ### <br/>
 
 ### 3. 연결 확인
+```
+SHOW REPLICA STATUS \G
+```
+### 아래와 같이 master mysql 과 설정값이 같아야 한다.
+#### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/6f9818bc-a390-4c03-ab7c-33f5df293694)

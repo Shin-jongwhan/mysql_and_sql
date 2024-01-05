@@ -16,3 +16,9 @@
 ### 아래 그림과 같이 흘러가는데 master, slave 들이 각각 log 에 변경 사항을 기록한다.
 ### slave SQL thread 에서 변경 사항을 최종 적용한다.
 ### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/9de59d7e-aaf4-4af7-b11e-5f75231c699a)
+### <br/>
+
+## binary-log
+### 블로그 글 발췌
+#### binarylog는 binlog라고도 부르고 있습니다.
+#### MySQL에서 발생하는 모든 내역을 기록하는 Log File이고, 이것은 기본적으로 비활성화되어 있는데, conf 파일에서 수정해서 이를 활성화 시켜주어야 합니다.

@@ -22,4 +22,32 @@
 ### 블로그 글 발췌
 #### binarylog는 binlog라고도 부르고 있습니다.
 #### MySQL에서 발생하는 모든 내역을 기록하는 Log File이고, 이것은 기본적으로 비활성화되어 있는데, conf 파일에서 수정해서 이를 활성화 시켜주어야 합니다.
-##
+### <br/>
+
+## master - my.cnf 설정
+### 먼저 mysqld kill 해주고 한다.
+```
+service mysql stop
+# 안 되면 ps -ef | grep mysql 한 후
+kill -9 [pid]
+```
+
+```
+[mysqld]
+#port=3307
+datadir=/data/mysql_docker
+log-bin=/data/mysql_docker/mysql-bin.log
+server-id = 1
+expire_logs_days = 10
+max_binlog_size = 100M
+
+[mysqldump]
+default-character-set = utf8
+
+[mysql]
+default-character-set = utf8
+```
+### <br/>
+
+
+

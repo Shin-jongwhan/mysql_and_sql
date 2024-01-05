@@ -2,6 +2,7 @@
 ## database 이중화
 ### 참고 블로그 / 웹사이트
 #### https://jane096.github.io/project/mysql-master-slave-replication/
+#### https://velog.io/@mooh2jj/%EC%84%9C%EB%B2%84-%EB%B6%84%EC%82%B0-%EC%B2%98%EB%A6%AC-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-MySQL%EC%9D%84-MasterSlave%EB%A1%9C-%EC%9D%B4%EC%A4%91%ED%99%94%ED%95%98%EA%B8%B0
 ### <br/><br/><br/>
 
 ## 사용 이유

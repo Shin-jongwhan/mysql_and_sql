@@ -49,7 +49,7 @@ default-character-set = utf8
 ```
 ### <br/>
 
-### master mysql 에서 slave mysql 서버를 등록한다.
+## master mysql 에서 slave mysql 서버를 등록
 ```
 # 계정 생성
 CREATE USER 'slave_1'@'ip_address' IDENTIFIED BY 'test';
@@ -59,9 +59,37 @@ GRANT REPLICATION SLAVE ON *.* TO 'slave_1'@'ip_address';
 ```
 
 ### 설정 확인
+### 여기서 File, Position 정보값은 기억해야 한다. slave 에 넣어줘야 함.
 ```
 SHOW MASTER STATUS \G
 ```
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/fd9f5a6f-bd84-411b-ba7a-232455038500)
+### <br/>
 
+## slave mysql 서버 설정
+### 1. my.cnf 
+### server-id = 2 와 같이 master 에서 사용한 1 번은 제외하여 다른 번호를 부여한다.
+```
+[mysqld]
+#port=3307
+datadir=/data/mysql
+server-id = 2
 
+[mysqldump]
+default-character-set = utf8
+
+[mysql]
+default-character-set = utf8
+```
+### <br/>
+
+### 2. slave mysql 에 접속하여 master mysql 의 정보를 입력해준다.
+- SOURCE_HOST : master mysql ip
+- SOURCE_LOG_FILE : master mysql 에서 얻은 master FILE
+- SOURCE_LOG_POS : master mysql 에서 얻은 master POSITION
+```
+CHANGE REPLICATION SOURCE TO SOURCE_HOST='182.162.88.158', SOURCE_LOG_FILE='mysql-bin.000003', SOURCE_LOG_POS=1265, SOURCE_SSL=1;
+```
+### <br/>
+
+### 3. 연결 확인

@@ -10,3 +10,16 @@ flush tables with read lock;
 ```
 mysqldump -u [user] -p [db] > [file_name].sql
 ```
+### <br/>
+
+### dump.sql 을 dump 할 서버로 복사
+```
+scp [file_name].sql jhshin@[server]:[path]
+```
+### <br/>
+
+### dump 할 서버에서 mysql 들어가서 db 를 만든다.
+```
+create database [db]
+```
+### <br/>

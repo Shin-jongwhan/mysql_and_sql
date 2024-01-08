@@ -33,5 +33,5 @@ mysql -u [user] -p [db] < [file_name].sql
 
 ### unlock
 ```
-unlock table;
+unlock tables;
 ```

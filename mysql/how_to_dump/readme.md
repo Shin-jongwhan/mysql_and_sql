@@ -29,3 +29,9 @@ create database [db]
 ```
 mysql -u [user] -p [db] < [file_name].sql
 ```
+### <br/>
+
+### unlock
+```
+unlock table;
+```

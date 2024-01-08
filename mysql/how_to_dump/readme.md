@@ -23,3 +23,9 @@ scp [file_name].sql jhshin@[server]:[path]
 create database [db]
 ```
 ### <br/>
+
+### import 
+#### * dump 할 때는 보통 root 를 쓴다.
+```
+mysql -u [user] -p [db] < [file_name].sql
+```

@@ -24,6 +24,12 @@
 #### MySQL에서 발생하는 모든 내역을 기록하는 Log File이고, 이것은 기본적으로 비활성화되어 있는데, conf 파일에서 수정해서 이를 활성화 시켜주어야 합니다.
 ### <br/>
 
+## db dump
+### 먼저 slave mysql 서버에 dump 를 해줘야 한다. 안 그러면 master mysql 서버에서 slave 쪽이랑 설정값이 달라진다.
+### dump 는 아래 정리 글을 참고한다.
+### https://github.com/Shin-jongwhan/mysql_and_sql/tree/main/mysql/how_to_dump
+### <br/>
+
 ## master - my.cnf 설정
 ### 먼저 mysqld kill 해주고 한다.
 ```

@@ -110,5 +110,13 @@ SHOW REPLICA STATUS \G
 
 ### 다음과 같이 Replica_IO_Running, Replica_SQL_Running 에 yes 가 뜨면 잘 작동하고 있는 것이다.
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/d0f8f259-4006-4bf4-9f58-58ea5cc6f01e)
-### <br/>
+### <br/><br/><br/>
+
+## master / slave 재등록시 에러났을 때
+```
+stop slave
+reset slave
+start slave
+```
+### <br/><br/><br/>
 

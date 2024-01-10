@@ -90,11 +90,12 @@ default-character-set = utf8
 ### <br/>
 
 ### 2. slave mysql 에 접속하여 master mysql 의 정보를 입력해준다.
+### * SOURCE_LOG_POS 는 계속 변한다. 주기는 잘 모르겠지만 설정값에 따라 변하는데 약 1분마다 변한다. 계속 체크해주면서 등록해줘야 한다.
 - SOURCE_HOST : master mysql ip
 - SOURCE_LOG_FILE : master mysql 에서 얻은 master FILE
 - SOURCE_LOG_POS : master mysql 에서 얻은 master POSITION
 ```
-CHANGE REPLICATION SOURCE TO SOURCE_HOST='182.162.88.158', SOURCE_LOG_FILE='mysql-bin.000003', SOURCE_LOG_POS=1265, SOURCE_SSL=1;
+CHANGE REPLICATION SOURCE TO SOURCE_HOST='ip', SOURCE_LOG_FILE='mysql-bin.000003', SOURCE_LOG_POS=1265, SOURCE_SSL=1;
 START REPLICA USER='repl' PASSWORD='1234';
 ```
 ### <br/>

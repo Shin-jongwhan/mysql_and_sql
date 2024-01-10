@@ -120,3 +120,12 @@ start slave;
 ```
 ### <br/><br/><br/>
 
+## ❗주의 사항
+### * slave = slave mysql server, master = master mysql server 로 줄임
+- slave 에서 작업하면 안 된다.
+- slave 가 꺼졌는데 master 에서 먼가 변화가 있었고, 그 상태로 slave 를 연결하면 에러난다. slave 작업시에는 master 에서 table lock 을 걸고, 그 다음 dump 한 후, 다시 slave 로 연결한다.
+### <br/><br/><br/>
+
+
+
+

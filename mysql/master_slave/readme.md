@@ -95,6 +95,7 @@ default-character-set = utf8
 - SOURCE_LOG_POS : master mysql 에서 얻은 master POSITION
 ```
 CHANGE REPLICATION SOURCE TO SOURCE_HOST='182.162.88.158', SOURCE_LOG_FILE='mysql-bin.000003', SOURCE_LOG_POS=1265, SOURCE_SSL=1;
+START REPLICA USER='repl' PASSWORD='1234';
 ```
 ### <br/>
 

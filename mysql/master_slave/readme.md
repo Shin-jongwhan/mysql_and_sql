@@ -114,9 +114,9 @@ SHOW REPLICA STATUS \G
 
 ## master / slave 재등록시 에러났을 때
 ```
-stop slave
-reset slave
-start slave
+stop slave;
+reset slave;
+start slave;
 ```
 ### <br/><br/><br/>
 

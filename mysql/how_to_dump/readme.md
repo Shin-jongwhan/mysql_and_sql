@@ -18,7 +18,12 @@ scp [file_name].sql jhshin@[server]:[path]
 ```
 ### <br/>
 
-### dump 할 서버에서 mysql 들어가서 db 를 만든다.
+### dump 할 서버에서 mysql 들어가서 db 를 만든다. 만약 이미 database가 있으면 drop 하고 수행
+#### drop database
+```
+drop database [db]
+```
+#### create database
 ```
 create database [db]
 ```

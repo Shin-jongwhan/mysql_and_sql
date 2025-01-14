@@ -1,0 +1,52 @@
+#
+# The MySQL database server configuration file.
+#
+# You can copy this to one of:
+# - "/etc/mysql/my.cnf" to set global options,
+# - "~/.my.cnf" to set user-specific options.
+#
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
+
+[mysqld]
+#port=3307
+datadir=/data/mysql
+innodb_data_home_dir=/data/mysql
+innodb_log_group_home_dir=/data/mysql
+innodb_force_recovery=1
+innodb_data_file_path=ibdata1:12M:autoextend
+log-bin=/data/mysql/mysql-bin.log
+server-id = 1 
+expire_logs_days = 10
+max_binlog_size = 100M
+log_bin_trust_function_creators = 1 
+collation-server = utf8mb4_general_ci
+default-time-zone = "+09:00"
+max_connections = 500 
+pid-file = /var/run/mysqld/mysqld.pid
+
+# log
+log-error=/data/mysql/error.log
+general_log=ON
+general_log_file=/data/mysql/general.log
+slow_query_log=ON
+slow_query_log_file=/data/mysql/slow.log
+long_query_time=2
+
+[mysqldump]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
+
+#!includedir /etc/mysql/conf.d/
+#!includedir /etc/mysql/mysql.conf.d/

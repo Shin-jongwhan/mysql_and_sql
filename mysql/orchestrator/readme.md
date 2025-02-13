@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/30fa728d-f656-4453-8c78-67efed4f0a66)### 250213
+### 250213
 # MySQL orchestrator
 ### MySQL 고가용성 서버 운영을 위한 소프트웨어이다.
 #### 나는 master-slave MySQL 서버의 고가용성(자동 복구)을 지원하기 위해 사용하기로 하였다.

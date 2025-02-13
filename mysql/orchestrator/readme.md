@@ -105,7 +105,8 @@ docker run -d -v /home/jhshin/script/docker/mysql_orchestrator/1.0.0/orchestrato
 ### <br/>
 
 ### slave 설정을 다시 하였다. orchestrator에서도 다시 복구가 된 모습을 확인할 수 있다.
-#### (그런데 모니터링이랑 master slave failover 기능만 있는 건가? 뭔가 부족한데...)
+#### 알아보니 모니터링이랑 master slave failover 기능만 있고 복구 기능은 없다고 한다.
+#### 그래서 컨테이너 관리는 docker나 container orchestration tool을 이용하는 게 맞다.
 #### ![image](https://github.com/user-attachments/assets/6469889b-6343-4d43-bead-65bbc3fd18dc)
 #### ![image](https://github.com/user-attachments/assets/307fd48d-c4af-4332-b72e-16c972a52eb9)
 

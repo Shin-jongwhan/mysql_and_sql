@@ -80,10 +80,26 @@ docker run -d -v /home/jhshin/script/docker/mysql_orchestrator/1.0.0/orchestrato
 #### ![image](https://github.com/user-attachments/assets/3f3f2a85-efd9-4175-9fe5-a1755eb17bfd)
 ### <br/>
 
-### 연결이 되면 대시보드에 가면 하나 등록이 되어 있을 것이다.
+### 연결이 되면 대시보드에 가면 하나 등록이 되어 있을 것이다. 클릭해보면 master - slave가 어떻게 등록이 되어 있는지(토폴로지 상태) 확인할 수 있다.
 ### clusters - dashboard
-#### ![image](https://github.com/user-attachments/assets/e79531fc-ec63-4b19-9130-abfa6cf63187)
+#### ![image](https://github.com/user-attachments/assets/ea3dfaab-ad74-4e6d-8b41-6d6f69d3d9d7)
+#### ![image](https://github.com/user-attachments/assets/53fc164a-1926-42a7-bc44-3776cda1989c)
 ### home - status
 #### 여기서 hostname은 orchesrator의 container id이다.
 #### ![image](https://github.com/user-attachments/assets/f0328f88-c94f-42cc-bcd6-fdf4b5fa65b0)
 #### ![image](https://github.com/user-attachments/assets/1ca2e27c-6e87-4b07-8981-420cf53e9572)
+
+### <br/><br/><br/>
+
+## orchestrator 대시보드 설정 및 상태 확인
+#### ![image](https://github.com/user-attachments/assets/146d89d7-28a3-457a-8b7f-1155985481a7)
+#### ![image](https://github.com/user-attachments/assets/163ab149-65ff-4463-82b5-0a3947f3cb1b)
+### <br/>
+
+### 임의로 slave를 꺼보았다. 모니터링이 잘 된다.
+#### ![image](https://github.com/user-attachments/assets/753e883c-054d-4048-81f2-ede1fdb553f9)
+### <br/>
+
+### 서비스를 다시 켜봤더니 not replicating이라고 나타난다.
+#### ![image](https://github.com/user-attachments/assets/629f9a3e-1c12-4e8a-8f6d-a6baee261f5e)
+

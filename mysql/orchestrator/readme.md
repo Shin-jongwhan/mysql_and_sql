@@ -41,3 +41,4 @@ FLUSH PRIVILEGES;
 - orchestrator-sample-sqlite.conf.json
   - 로컬에서 관리하도록 sqlite를 사용
 ### 기본 설정은 orchestrator-sample-sqlite.conf.json이다. 나는 별도 orchestrator 관리용 MySQL 서버를 구성하지 않을 것이기 때문에 이걸 이용한다.
+#### [orchestrator-sample-sqlite-ori.conf.json](https://github.com/Shin-jongwhan/mysql_and_sql/blob/main/mysql/orchestrator/orchestrator-sample-sqlite-ori.conf.json)

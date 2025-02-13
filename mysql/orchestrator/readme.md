@@ -102,4 +102,10 @@ docker run -d -v /home/jhshin/script/docker/mysql_orchestrator/1.0.0/orchestrato
 
 ### 서비스를 다시 켜봤더니 not replicating이라고 나타난다.
 #### ![image](https://github.com/user-attachments/assets/629f9a3e-1c12-4e8a-8f6d-a6baee261f5e)
+### <br/>
+
+### slave 설정을 다시 하였다. orchestrator에서도 다시 복구가 된 모습을 확인할 수 있다.
+#### (그런데 모니터링이랑 master slave failover 기능만 있는 건가? 뭔가 부족한데...)
+#### ![image](https://github.com/user-attachments/assets/6469889b-6343-4d43-bead-65bbc3fd18dc)
+#### ![image](https://github.com/user-attachments/assets/307fd48d-c4af-4332-b72e-16c972a52eb9)
 

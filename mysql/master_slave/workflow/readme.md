@@ -6,6 +6,6 @@
 3. mysql slave pod (또는 container) 실행
 4. dump한 거 import
 5. slave 설정
-  - mysql master에서 relay bin 값 등 조회해서 가져오기
-  - mysql slave 설정
+    - mysql master에서 relay bin 값 등 조회해서 가져오기
+    - mysql slave 설정
 6. table lock 해제

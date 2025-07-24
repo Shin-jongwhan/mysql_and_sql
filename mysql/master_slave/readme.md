@@ -107,8 +107,13 @@ START REPLICA USER='repl' PASSWORD='1234';
 ### <br/>
 
 ### 3. 연결 확인
+#### mysql 8 버전
 ```
-SHOW REPLICA STATUS \G
+SHOW REPLICA STATUS \G;
+```
+#### mysql 9 버전
+```
+SHOW BINARY LOG STATUS;
 ```
 ### 아래와 같이 master mysql 과 설정값이 같아야 한다.
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/6f9818bc-a390-4c03-ab7c-33f5df293694)
@@ -119,10 +124,17 @@ SHOW REPLICA STATUS \G
 ### <br/><br/><br/>
 
 ## master / slave 재등록시 에러났을 때
+#### mysql 8 버전
 ```
 stop slave;
 reset slave;
 start slave;
+```
+#### mysql 9 버전
+```
+stop replica;
+reset replica;
+start replica;
 ```
 ### <br/><br/><br/>
 

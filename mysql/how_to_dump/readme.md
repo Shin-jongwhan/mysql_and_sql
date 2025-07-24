@@ -8,7 +8,11 @@ flush tables with read lock;
 
 ### db dump
 ```
+# 전체 dump
 mysqldump -u [user] -p [db] > [file_name].sql
+
+# information_schema, sys 등 mysql 자체에서 관리하는 database 제외하여 dump
+mysqldump -uroot -proot --databases $(mysql -uroot -proot -Nse "SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('mysql','performance_schema','information_schema','sys')") > [file_name].sql
 ```
 ### <br/>
 

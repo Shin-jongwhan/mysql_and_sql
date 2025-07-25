@@ -6,6 +6,14 @@ flush tables with read lock;
 ```
 ### <br/> 
 
+### 필요 시 lock 되었는지 테스트해본다.
+```
+use database;
+INSERT INTO your_table (name) VALUES ('test');
+```
+#### <img width="686" height="36" alt="image" src="https://github.com/user-attachments/assets/56d5d1f8-d9d9-437f-8089-8ff33f732006" />
+### <br/> 
+
 ### db dump
 ```
 # 전체 dump

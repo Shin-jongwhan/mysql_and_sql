@@ -73,7 +73,8 @@ SHOW MASTER STATUS \G
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/fd9f5a6f-bd84-411b-ba7a-232455038500)
 ```
 # mysql 9 버전
-SELECT * FROM performance_schema.log_status;
+# SELECT * FROM performance_schema.log_status;
+SHOW BINARY LOG STATUS;
 ```
 #### <img width="942" height="174" alt="image" src="https://github.com/user-attachments/assets/145c4c7d-c4ca-41b2-8f14-856e5d1a5113" />
 ### <br/>
@@ -107,13 +108,9 @@ START REPLICA USER='repl' PASSWORD='1234';
 ### <br/>
 
 ### 3. 연결 확인
-#### mysql 8 버전
+#### mysql 8, 9 버전
 ```
 SHOW REPLICA STATUS \G;
-```
-#### mysql 9 버전
-```
-SHOW BINARY LOG STATUS;
 ```
 ### 아래와 같이 master mysql 과 설정값이 같아야 한다.
 #### ![image](https://github.com/Shin-jongwhan/mysql_and_sql/assets/62974484/6f9818bc-a390-4c03-ab7c-33f5df293694)

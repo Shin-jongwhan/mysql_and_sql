@@ -42,7 +42,7 @@ EOF
 LOCK_PID=$!
 
 # 4. mysqldump로 dump 파일 생성
-backup_sql=/data/mysql/tgf/backup/${backup_date}_backup.sql
+backup_sql=/data/mysql/backup/${backup_date}_backup.sql
 mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" -p"$MYSQL_PW" \
   --databases $(mysql -h "$MYSQL_HOST" -u "$MYSQL_USER" -p"$MYSQL_PW" -Nse \
     "SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('performance_schema','information_schema','sys')") \

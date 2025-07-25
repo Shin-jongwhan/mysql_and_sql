@@ -7,6 +7,7 @@ flush tables with read lock;
 ### <br/> 
 
 ### 필요 시 lock 되었는지 테스트해본다.
+### 그러면 아래처럼 read lock 에러 메세지가 나와야 한다.
 ```
 use database;
 INSERT INTO your_table (name) VALUES ('test');
